@@ -1,0 +1,20 @@
+[project]
+name = "chat-with-langchain"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "duckduckgo-search>=8.1.1",
+    "fastapi>=0.129.0",
+    "gradio>=6.8.0",
+    "langchain>=1.2.10",
+    "langchain-google-genai>=4.2.1",
+    "langchain-mcp-adapters>=0.2.1",
+    "langchain-xai>=1.2.2",
+    "langgraph-api>=0.2.3",
+    "langgraph-sdk>=0.1.61",
+    "mcp[cli]>=1.26.0",
+    "streamlit>=1.54.0",
+    "uvicorn>=0.41.0",
+]
