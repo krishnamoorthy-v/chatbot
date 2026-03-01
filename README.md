@@ -33,11 +33,11 @@ flowchart TD
 
 - An in-memory rate limiter is applied via LangChain to regulate outgoing requests. This throttling mechanism reduces the likelihood of HTTP 429 (Too Many Requests) errors by ensuring request throughput stays within the provider’s rate limits.
 ```mermaid
-    A[Incoming Requests] --> B[Rate Limiter]
-    B --> C[FIFO Queue]
-    C --> D[Execute Request]
-    D --> E[LLM/API Response]
-    
+    flowchart TD
+        A[Incoming Requests] --> B[Rate Limiter]
+        B --> C[FIFO Queue]
+        C --> D[Execute Request]
+        D --> E[LLM/API Response]
 ```
 
 
