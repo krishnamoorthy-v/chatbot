@@ -5,7 +5,7 @@ import dotenv
 
 dotenv.load_dotenv()
 
-_limiter_grok_4_1_fast_reasoning = InMemoryRateLimiter(requests_per_second=15 / 60)
+_limiter_grok_4_1_fast_reasoning = InMemoryRateLimiter(requests_per_second=480 / 60)
 _model = init_chat_model(model="grok-4-1-fast-reasoning", model_provider="xai", temperature=1.0, max_tokens=1300,
                          max_retries=2, timeout=10, rate_limiter=_limiter_grok_4_1_fast_reasoning)
 

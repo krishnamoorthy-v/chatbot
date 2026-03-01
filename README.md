@@ -11,7 +11,7 @@ It features a **Streamlit UI** for interaction, a **FastAPI backend** for orches
 - **RAG (Retrieval-Augmented Generation)** – Grounds responses using internal knowledge  
 - **Redis-based Temporary Memory** – Fast in-memory conversation context  
 - **Bulk Persistence to MongoDB** – Optimized long-term storage  
-
+- **dashboard** - Model and user based token usage cost consumption shown
 ---
 
 ## 🏗️ Architecture Overview
@@ -27,3 +27,27 @@ flowchart TD
     Manager --> LLM[LLM Response]
     LLM --> RedisAppend[Redis Append Message]
     RedisAppend -->|Every 5 min| MongoDB[MongoDB Bulk Write]
+````
+
+## Rate limiting
+
+- An in-memory rate limiter is applied via LangChain to regulate outgoing requests. This throttling mechanism reduces the likelihood of HTTP 429 (Too Many Requests) errors by ensuring request throughput stays within the provider’s rate limits.
+```mermaid
+    A[Incoming Requests] --> B[Rate Limiter]
+    B --> C[FIFO Queue]
+    C --> D[Execute Request]
+    D --> E[LLM/API Response]
+    
+    %% Notes
+    B:::limit
+    C:::queue
+    D:::exec
+
+classDef limit fill:#f9f,stroke:#333,stroke-width:1px;
+classDef queue fill:#bbf,stroke:#333,stroke-width:1px;
+classDef exec fill:#bfb,stroke:#333,stroke-width:1px;
+    
+```
+
+
+
