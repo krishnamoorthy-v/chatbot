@@ -38,15 +38,6 @@ flowchart TD
     C --> D[Execute Request]
     D --> E[LLM/API Response]
     
-    %% Notes
-    B:::limit
-    C:::queue
-    D:::exec
-
-classDef limit fill:#f9f,stroke:#333,stroke-width:1px;
-classDef queue fill:#bbf,stroke:#333,stroke-width:1px;
-classDef exec fill:#bfb,stroke:#333,stroke-width:1px;
-    
 ```
 
 
